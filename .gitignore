@@ -5,3 +5,5 @@ dist
 lib
 coverage
 _book
+
+.idea/
