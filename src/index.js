@@ -1,13 +1,14 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {getSelection, setSelection} from './domElementSelection';
 import abstractNumberInput from './abstract-number-format-input/index';
+import PropTypes from 'prop-types';
 
 const TAB = 9;
 const ENTER = 13;
 
 export default class NumberFormatInput extends Component {
   componentDidUpdate() {
-    if (this.nextSelection) setSelection(this.refs.input, this.nextSelection);
+    if (this.nextSelection) setSelection(this.textInput, this.nextSelection);
     delete this.nextSelection;
   }
 
@@ -22,8 +23,8 @@ export default class NumberFormatInput extends Component {
     if (charCode === TAB || charCode === ENTER) { return }
 
     const pasteText = e.clipboardData && e.clipboardData.getData('text') || '';
-    const {value: inputValue} = this.refs.input;
-    const selection = getSelection(this.refs.input);
+    const {value: inputValue} = this.textInput;
+    const selection = getSelection(this.textInput);
     const { metaKey, altKey, ctrlKey } = e;
     const {maxLength, value, onChange} = this.props;
 
@@ -70,7 +71,12 @@ export default class NumberFormatInput extends Component {
     delete inputProps.numberFormat;
     inputProps.value = this.getAbstractNumInput().format(value);
     return (
-        <input ref="input" type="text" {...inputProps} {...this.eventHandlers()}/>
+        <input
+          ref={(input) => { this.textInput = input; }}
+          type="text"
+          {...inputProps}
+          {...this.eventHandlers()}
+        />
     );
   }
 }

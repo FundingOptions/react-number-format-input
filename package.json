@@ -1,5 +1,5 @@
 {
-  "name": "@lendinghome/react-number-format-input",
+  "name": "@fundingoptions/react-number-format-input",
   "version": "2.0.2",
   "description": "An input for numbers formatted by Intl.NumberFormat.",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LendingHome/react-number-format-input"
+    "url": "https://github.com/FundingOptions/react-number-format-input"
   },
   "keywords": [
     "money",
@@ -55,13 +55,16 @@
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.2.5",
+    "npm": "^5.6.0",
     "phantomjs": "^1.9.18",
     "phantomjs-polyfill": "0.0.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
     "react-addons-test-utils": "^0.14.3",
     "rimraf": "^2.3.4",
     "webpack": "^1.9.6"
   },
-  "npmName": "@lendinghome/react-number-format-input",
+  "npmName": "@fundingoptions/react-number-format-input",
   "npmFileMap": [
     {
       "basePath": "/dist/",
@@ -71,7 +74,7 @@
     }
   ],
   "peerDependencies": {
-    "react": "^0.14.8"
+    "react": ">=15"
   },
   "dependencies": {
     "invariant": "^2.1.2",
