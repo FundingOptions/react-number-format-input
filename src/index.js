@@ -12,6 +12,13 @@ export default class NumberFormatInput extends Component {
     delete this.nextSelection;
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.value === 0 && this.props.value === undefined) {
+      return false;
+    }
+    return true;
+  }
+
   getAbstractNumInput() {
     return abstractNumberInput(this.props.numberFormat);
   }
